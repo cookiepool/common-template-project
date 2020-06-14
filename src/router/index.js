@@ -1,28 +1,52 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
 
 Vue.use(VueRouter);
 
-const routes = [
+/** 不需要权限就能访问的路由 **/
+export const constRoutes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/login',
+    name: 'login',
+    component: () => import(/* webpackChunkName: "login" */ '@/views/login')
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: '/404',
+    name: '404',
+    component: () => import(/* webpackChunkName: "404" */ '@/views/404.vue')
+  },
+  {
+    path: '/',
     component: () =>
-      import(/* webpackChunkName: "about" */ '../views/About.vue')
+      import(/* webpackChunkName: "layout" */ '@/layout/index.vue'),
+    redirect: '/dashboard',
+    children: [
+      {
+        path: 'dashboard',
+        name: 'dashboard',
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboard" */ '@/views/dashboard/index.vue'
+          ),
+        meta: { title: 'dashboard', icon: 'dashboard' }
+      }
+    ]
+  },
+  {
+    path: '*',
+    redirect: '/404'
+  }
+];
+
+/** 根据用户权限需要区分的路由 **/
+export const asyncRoutes = [
+  {
+    path: '/'
   }
 ];
 
 const router = new VueRouter({
-  routes
+  routes: constRoutes
 });
 
 export default router;
