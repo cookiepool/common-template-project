@@ -1,20 +1,29 @@
 <template>
   <div class="app-wraper">
     <!-- 左侧边导航栏 -->
-    <p>hhhhhhh</p>
+    <side-bar />
     <!-- 右边内容部分 -->
     <div class="main-container">
       <!-- 右边顶部导航栏 -->
-
+      <nav-bar />
       <!-- 右边底部内容栏 -->
-      <router-view></router-view>
+      <app-main />
     </div>
   </div>
 </template>
 
 <script>
+import AppMian from './components/AppMain';
+import NavBar from './components/NavBar';
+import SideBar from './components/SideBar';
+
 export default {
-  name: 'layout',
+  name: 'Layout',
+  components: {
+    'app-main': AppMian,
+    'nav-bar': NavBar,
+    'side-bar': SideBar
+  },
   data() {
     return {};
   },
