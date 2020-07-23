@@ -3,8 +3,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
-// 引入normalize.css
-import 'normalize.css/normalize.css';
+// 引入重置样式
+import './styles/reset.scss';
 
 // 引入element-ui（按需引入）
 import { Input, Button } from 'element-ui';

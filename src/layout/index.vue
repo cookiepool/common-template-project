@@ -32,4 +32,26 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+html,
+body {
+  height: 100%;
+}
+</style>
+
+<style lang="scss" scoped>
+.app-wraper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.main-container {
+  position: relative;
+  min-height: 100%;
+  margin-left: 210px;
+  &::before {
+    content: '';
+    display: table;
+  }
+}
+</style>
