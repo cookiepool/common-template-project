@@ -7,8 +7,11 @@ import store from './store';
 import './styles/reset.scss';
 
 // 引入element-ui（按需引入）
-import { Input, Button } from 'element-ui';
-Vue.use(Input).use(Button);
+import { Input, Button, Form, FormItem } from 'element-ui';
+Vue.use(Input)
+  .use(Button)
+  .use(Form)
+  .use(FormItem);
 
 Vue.config.productionTip = false;
 
