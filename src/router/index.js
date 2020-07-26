@@ -3,8 +3,21 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
+import Layout from '@/layout/index';
+
 /** 不需要权限就能访问的路由 **/
 export const constRoutes = [
+  {
+    path: '/redirect',
+    component: Layout,
+    children: [
+      {
+        path: '/redirect/:path(.*)',
+        component: () =>
+          import(/* webpackChunkName: 'redirect-refresh' */ '@/views/redirect')
+      }
+    ]
+  },
   {
     path: '/login',
     name: 'login',
@@ -17,8 +30,7 @@ export const constRoutes = [
   },
   {
     path: '/',
-    component: () =>
-      import(/* webpackChunkName: "layout" */ '@/layout/index.vue'),
+    component: Layout,
     redirect: '/dashboard',
     children: [
       {

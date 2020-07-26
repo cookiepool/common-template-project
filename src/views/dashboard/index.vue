@@ -1,6 +1,7 @@
 <template>
   <div class="dashboard-wraper">
     <p>This is dashboard page</p>
+    <el-button type="primary" @click="refresh">刷新页面</el-button>
   </div>
 </template>
 
@@ -12,9 +13,17 @@ export default {
       msg: ''
     };
   },
-  mounted() {
-    console.log('jjj');
-    console.log(this.$route);
+  mounted() {},
+  methods: {
+    refresh() {
+      const { fullPath } = this.$route;
+
+      this.$nextTick(() => {
+        this.$router.replace({
+          path: '/redirect' + fullPath
+        });
+      });
+    }
   }
 };
 </script>

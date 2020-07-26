@@ -1,18 +1,12 @@
 <template>
   <div class="app-main-wraper">
-    <p>content</p>
-    <child-com :address="formData.address"></child-com>
+    <router-view />
   </div>
 </template>
 
 <script>
-import ChildCom from './ChildCom';
-
 export default {
   name: 'AppMain',
-  components: {
-    'child-com': ChildCom
-  },
   data() {
     return {
       formData: {

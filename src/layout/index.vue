@@ -27,7 +27,12 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
+  mounted() {
+    console.log(process.env);
+    console.log(process.env.NODE_ENV);
+    console.log(process.env.VUE_APP_TITLE);
+    console.log(process.env.BASE_URL);
+  },
   created() {}
 };
 </script>
