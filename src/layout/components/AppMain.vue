@@ -8,17 +8,7 @@
 export default {
   name: 'AppMain',
   data() {
-    return {
-      formData: {
-        name: 'lily',
-        address: {
-          provice: '',
-          city: '',
-          county: '',
-          detail: ''
-        }
-      }
-    };
+    return {};
   }
 };
 </script>
