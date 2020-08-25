@@ -2,18 +2,19 @@
   <div class="all-wraper">
     <section class="login-box">
       <el-input
-        v-model="name"
+        v-model="formData.username"
         placeholder="用户名"
         style="margin-bottom: 50px"
       ></el-input>
 
       <el-input
-        v-model="password"
+        v-model="formData.password"
         placeholder="密码"
         style="margin-bottom: 30px"
       ></el-input>
 
-      <el-button type="primary">登录</el-button>
+      <el-button @click="login" type="primary">登录</el-button>
+      <el-button @click="test" type="primary">测试</el-button>
     </section>
   </div>
 </template>
@@ -25,14 +26,24 @@ export default {
   name: 'Login',
   data() {
     return {
-      name: '',
-      password: ''
+      formData: {
+        username: '',
+        password: ''
+      }
     };
   },
-  mounted() {
-    user.getData().then(res => {
-      console.log(res);
-    });
+  mounted() {},
+  methods: {
+    login() {
+      user.login(this.formData).then((res) => {
+        console.log(res);
+      });
+    },
+    test() {
+      user.getUserInfo({ token: 'admin-token' }).then((res) => {
+        console.log(res);
+      });
+    }
   }
 };
 </script>

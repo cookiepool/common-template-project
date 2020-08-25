@@ -5,13 +5,13 @@ const requestService = Axios.create({
 });
 
 requestService.interceptors.request.use(
-  config => {
+  (config) => {
     console.log(config);
     config.headers['x-token'] = 'dafjafjjij';
 
     return config;
   },
-  err => {
+  (err) => {
     console.log(err);
 
     return Promise.reject(err);
@@ -19,12 +19,12 @@ requestService.interceptors.request.use(
 );
 
 requestService.interceptors.response.use(
-  res => {
+  (res) => {
     console.log(res);
 
     return res;
   },
-  err => {
+  (err) => {
     console.log(err);
 
     return Promise.reject(err);
