@@ -58,5 +58,11 @@ module.exports = {
         data: '未找到用户信息'
       });
     }
+  },
+  'POST /v1/user/logout': (req, res) => {
+    res.json({
+      code: '200',
+      data: '注销成功！'
+    });
   }
 };

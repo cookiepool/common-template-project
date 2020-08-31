@@ -4,7 +4,7 @@ export function getUserInfo(token) {
   return request({
     url: '/v1/user/info',
     method: 'get',
-    params: token
+    params: { token }
   });
 }
 

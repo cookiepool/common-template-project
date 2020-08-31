@@ -4,7 +4,7 @@ import router from './router';
 import store from './store';
 
 // 引入重置样式
-import './styles/reset.scss';
+import './assets/scss/reset.scss';
 
 // 引入element-ui（按需引入）
 import { Input, Button, Form, FormItem } from 'element-ui';
@@ -18,5 +18,5 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  render: h => h(App)
+  render: (h) => h(App)
 }).$mount('#app');
