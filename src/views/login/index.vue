@@ -14,7 +14,6 @@
       ></el-input>
 
       <el-button @click="login" type="primary">登录</el-button>
-      <el-button @click="test" type="primary">测试</el-button>
     </section>
   </div>
 </template>
@@ -36,11 +35,6 @@ export default {
   methods: {
     login() {
       user.login(this.formData).then((res) => {
-        console.log(res);
-      });
-    },
-    test() {
-      user.getUserInfo({ token: 'admin-token' }).then((res) => {
         console.log(res);
       });
     }

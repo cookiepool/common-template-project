@@ -7,6 +7,7 @@
 const user = require('./modules/user');
 
 const proxy = {
+  // 对象的解构是es7标准
   ...user
 };
 
