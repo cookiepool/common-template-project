@@ -6,12 +6,10 @@ import store from './store';
 // 引入重置样式
 import './assets/scss/reset.scss';
 
-// 引入element-ui（按需引入）
-import { Input, Button, Form, FormItem } from 'element-ui';
-Vue.use(Input)
-  .use(Button)
-  .use(Form)
-  .use(FormItem);
+// 引入element-ui
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
 Vue.config.productionTip = false;
 
