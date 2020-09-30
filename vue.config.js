@@ -1,18 +1,16 @@
 const path = require('path');
 
-// 这个可以自定义端口号
-const port = process.env.port || process.env.npm_config_port || 9288;
-
 // 解析路径
 function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-// 自定义配置
 module.exports = {
-  devServer: {
-    port: port
-  },
+  publicPath: './',
+  outputDir: 'dist',
+  assetsDir: './',
+  productionSourceMap: process.env.NODE_ENV === 'development' ? true : false,
+  lintOnSave: 'default',
   configureWebpack: {
     // 配置一个路径解析
     resolve: {
@@ -20,5 +18,9 @@ module.exports = {
         '@': resolve('src')
       }
     }
+  },
+  chainWebpack: (config) => {
+    // 使用官方的懒加载需要去掉官方脚手架的prefetch配置
+    config.plugins.delete('prefetch');
   }
 };

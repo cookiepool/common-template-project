@@ -1,12 +1,4 @@
-# common-template-project
-
-基于@vue/cli 4.4.4创建的项目模板
-
-# 特性
-
-- 开启ESLint+Prettier代码风格检测，代码commit也会检测
-- 自定义了部分风格
-  > 1、引号使用单引号，不使用默认的双引号
+# template
 
 ## Project setup
 ```
